@@ -1,0 +1,20 @@
+<launch>
+	<!-- <node pkg = "rosaria" type = "RosAria" name = "RosAria">
+		<param name="port" value="/dev/ttyUSB0" type="string"/>
+	</node> -->
+
+	<node pkg="rpi_rosaria_client" type="mykey_publisher.py" name="keyboard_driver" output="screen"/>
+    <!-- <node pkg="rpi_rosaria_client" type="key_publisher.py" name="key_publisher"/> -->
+        <!-- <node pkg="rpi_rosaria_client" type="key_subscriber.py" name="key_subscriber"/> -->
+	<!-- <node pkg="rpi_rosaria_client" type="teleop" name="RosAria_interface" output="screen"/> -->
+	<!-- <node pkg="rpi_rosaria_client" type="navop.py" name="keys_to_twist_using_rate"/> -->
+	<!-- <node pkg="usb_cam" type="usb_cam_node" name="usb_cam"/> -->
+  	<node name="image_view" pkg="image_view" type="image_view" respawn="false" output="screen">
+    		<remap from="image" to="/camera1/image_raw"/>
+            <param name="image_transport" value="compressed" />
+    		<param name="autosize" value="true" />
+  	</node>
+        
+
+
+</launch>
